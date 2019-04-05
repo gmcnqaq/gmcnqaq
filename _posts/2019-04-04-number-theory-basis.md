@@ -15,7 +15,7 @@ comments: true
 
 ### 整除性
 
-设a,b, m均为整数，其中b ≠ 0, 若存在某个m使得$a = mb$成立, 则称**b整除a**
+设a,b, m均为整数，其中b ≠ 0, 若存在某个m使得$$a = mb$$成立, 则称**b整除a**
 
 也就是说如果b除a没有余数, 则认为b整除a
 
@@ -47,18 +47,19 @@ def gcd(a, b):
         return gcd(b, a % b)
 ```
 
-例:
-$$a = 888, b = 264$$
+>例:
+> $$a = 888, b = 264$$
+>
+> $$888 = 2 \times 312 + 264$$
+>
+> $$312 = 1 \times 264 + 48$$
+>
+> $$264 = 5 \times 48 + 24$$
+>
+> $$48 = 2 \times 24$$
+>
+> $$gcd(264, 888) = 24$$
 
-$$888 = 2 * 312 + 264$$
-
-$$312 = 1 * 264 + 48$$
-
-$$264 = 5 * 48 + 24$$
-
-$$48 = 2 * 24$$
-
-$$gcd(264, 888) = 24$$
 
 ---
 
@@ -70,6 +71,7 @@ $$gcd(264, 888) = 24$$
 
 ### 同余
 
+
 `a ≡ b (mod n)`
 
 对同余的理解: 从采用的`≡`, 即可理解其含义，即: *在mod n运算时a与b是**等价**的*
@@ -79,8 +81,8 @@ $$gcd(264, 888) = 24$$
 性质
 
 * $$[(a\  mod\  n) + (b\  mod\  n)]\ mod\ n = (a + b)\ mod\ n$$ ①
-* $$[(a\  mod\  n) * (b\  mod\  n)]\ mod\ n = (a * b)\ mod\ n$$ ②
-* 若a与n互素: 若$$(a * b) ≡ (a * c)\ mod\ n$$, 则$$b ≡ c\ mod\ n$$ ③
+* $$[(a\  mod\  n) \times (b\  mod\  n)]\ mod\ n = (a \times b)\ mod\ n$$ ②
+* 若a与n互素: 若$$(a \times b) ≡ (a \times c)\ mod\ n$$, 则$$b ≡ c\ mod\ n$$ ③
 
 
 定义比n小的非负整数集合为$$Z_n$$
@@ -100,14 +102,30 @@ def egcd(a, b):
         g, y, x = egcd(b % a, a)
         return (g, x - (b // a) * y, y)
 ```
-例:$$a = 264, b = 888$$
+> 例:$$a = 264, b = 888$$
+>
+> $$264 = 888 - 2 \times 312$$
+>
+> $$48 = 312 - 264 = 312 - (888 - 2 \times 312) = -888 + 3 \times 312$$
+>
+> $$24 = 264 - 5 \times 48 = (888 - 2 \times 312) - 5 \times (-888 + 3 \times 312) = 6 \times 888 - 17 \times 312$$
 
-$$264 = 888 - 2 * 312$$
+求逆元
+```python
+def egcd(a, b):
+    if a == 0:
+        return (b, 0, 1)
+    else:
+        g, y, x = egcd(b % a, a)
+        return (g, x - (b // a) * y, y)
 
-$$48 = 312 - 264 = 312 - (888 - 2 * 312) = -888 + 3 * 312$$
-
-$$24 = 264 - 5 * 48 = (888 - 2 * 312) - 5 * (-888 + 3 * 312) = 6 * 888 - 17 * 312$$
-
+def modinv(a, m):
+    g, x, y = egcd(a, m)
+    if g != 1:
+        raise Exception('modular inverse does not exist')
+    else:
+        return x % m
+```
 ---
 
 ## 素数
@@ -116,16 +134,165 @@ $$24 = 264 - 5 * 48 = (888 - 2 * 312) - 5 * (-888 + 3 * 312) = 6 * 888 - 17 * 31
 
 **算数基本定理**: 任何整数a > 1都可以唯一地因式分解为
 
-$$a = p_1^{a_1} * p_2^{a_2} * \dots * p_t^{a_t}$$
+$$a = p_1^{a_1} \times p_2^{a_2} \times \dots \times p_t^{a_t}$$
 
 式中$$p_1, p_2, \dots, p_t$$均是素数, $$p_1 < p_2 < \dots < p_t$$, 且所有的$$a_i$$都是正整数
 
 另一种表示方法:
 
-设P是所有素数的集合,则任意正整数a可以唯一地表示为
+设P是所有素数的集合,则任意正整数a可以唯一地表示为:
 
 $$a = \prod_{p\in P} {p^{a_p}}, a_p \ge 0$$
 
 上式右边是所有可能素数p之积
+
+---
+
+## 费马定理和欧拉定理
+
+### 费马定理
+
+若p是素数, a是正整数且不能被p整除, 则
+
+$$a^{p - 1} \equiv 1\ mod\ p$$
+
+另一种有用的形式:
+
+若p是素数且a是任意正整数,则
+
+$$a^p \equiv a\ mod\ p$$
+
+两种形式的差别第一种要求a与p互素, 第二种则没有这个要求
+
+### 欧拉函数
+
+**欧拉函数$$\varphi(n)$$**: 指小于n且与n互素的正整数的个数。习惯上, $$\varphi(1) = 1$$
+
+对于素数p, 有
+
+$$\varphi(p) = p - 1$$
+
+
+假设有两个素数p和q, **$$p \ne q$$**, 那么对于$$n = pq$$, 有
+
+$$\varphi(n) = \varphi(p \times q) = \varphi(p) \times \varphi(q) = (p - 1) \times (q - 1)$$
+
+### 欧拉定理
+
+对任意**互素**的a和n, 有
+
+$$a^{\varphi(n)} \equiv 1\ mod\ n$$
+
+类似费马定理, 欧拉定理得另一种表达也很有用
+
+$$a^{\varphi(n) + 1} \equiv a\ mod\ n$$
+
+---
+
+## 中国剩余定理(CRT)
+
+中国剩余定理是数论中最有用的定理之一。CRT说明，某一范围内的整数课通过它的一组剩余类数来重构, 这组剩余类数是对该整数用一组两两互素的整数取模得到的
+
+CRT的一种表现形式, 令
+
+$$M = \prod_{i = 1}^{k} {m_i}$$
+
+其中$$m_i$$是两两互素的, 即对$$1 \le i, j \le k, i \ne j$$有$$gcd(m_i, m_j) = 1$$。我们可以将$$Z_M$$中的任意整数对应一个k元组, 该k元组的元素均在$$Z_{m_i}$$中, 这种对应关系即为
+
+$$A \Leftrightarrow (a_1, a_2, \dots, a_k)$$
+
+其中$$A \in Z_M$$, 对$$1 \le i \le k, a_i \in Z_{m_i}$$, 且$$a_i = A\ mod\ m_i$$
+
+CRT说明下面两个断言成立
+
+1. 上式中的映射是$$Z_M$$到笛卡尔积$$Z_{m_1} \times Z_{m_2} \times \dots \times Z_{m_k}$$的一一对应, 也就是说, 对于任何A, $$0 \le A < M$$有唯一的k元组$$(a_1, a_2, \dots, a_k)$$与之对应, 其中$$0 \le a_i \le m_i$$, 并且对任何这样的k元组$$(a_1, a_2, \dots, a_k)$$, $$Z_M$$中有唯一的A与之对应
+2. $$Z_M$$中的元素上的运算可以等价于对应的k元组的运算, 即在笛卡尔积的每个分量上独立地执行运算
+
+> 例:
+> 将973 mod 1813表示为模37和49的两个数。我们定义
+>
+> $$m_1 = 37, m_2 = 49, M = 1813, A = 973$$
+>
+> 则$$M_1 = \frac{M}{m_1} = 49$$且$$M_2 = \frac{M}{m_2} = 37$$。利用拓展欧几里得算法有$$M_1^{-1} = 34\ mod\ m_1 = modinv(M_1, m_1)$$, 且$$M_2^{-1} =  4\ mod\ m_2 = modinv(M_2. m_2)$$(注意每个$$M_i$$和$$M_i^{-1}$$只需计算一次)。对37和49取模, 因为$$973\ mod\ 37 = 11,\ 973\ mod\ 49 = 42$$, 所以973可以表示为(11, 42)
+>
+> 假定要处理678 + 973。该如何处理(11, 42)? 首先计算$$678 \Leftrightarrow (678\ mod\ 37,\ 678\ mod\ 48) = (12, 41)$$, 然后将二元组的元素相加并化简$$(11 + 12\ mod\ 37,\ 42 + 41\ mod\ 49) = (23, 24)$$。
+> 
+> $$(23, 24) \Leftrightarrow a_1M_1M_1^{-1} + a_2M_2M_2^{-1}\ mod\ M$$
+> 
+> $$= [23 \times 49 \times 34 + 34 \times 37 \times 4]\ mod\ 1813$$
+> 
+> $$= 43350\ mod\ 1813$$
+> 
+> $$= 1651$$
+>
+> 而$$(973 + 678)\ mod\ 1813 = 1651$$
+
+另一种表现形式, 令$$m_1,\ \dots,\ m_k$$是两两互素的整数, 且$$1 \le i,\ j \le k,\ i \ne j$$, 定义M为所有$$m_i$$的乘积。设$$a_i,\ \dots,\ a_k$$是整数, 则同余方程组
+
+$$x \equiv a_1\ mod\ m_1$$
+
+$$x \equiv a_2\ mod\ m_2$$
+
+$$\vdots$$
+
+$$x \equiv a_k\ mod\ a_k$$
+
+模M有唯一解
+
+> 例:
+> 
+> $$x \equiv 2\ mod\ 3;\ x \equiv 3\ mod\ 5;\ x \equiv 2\ mod\ 7$$
+> 
+> 求解x
+> 
+> $$M = 3 \times 5 \times 7 = 105$$
+>
+> $$M_1 = 35,\ M_1^{-1} = 2$$
+> 
+> $$M_2 = 21,\ M_2^{-1} = 1$$
+>
+> $$M_3 = 15,\ M_3^{-1} = 1$$
+> 
+> $$x = (2 \times 35 \times 2 + 3 \times 21 \times 1 + 2 \times 15 \times 1)\ mod\ 105$$
+> 
+>$$= 233\ mod\ 105$$
+>
+> $$= 23$$
+
+对CRT的个人理解:
+
+第一种表现形式可以理解为一个向量可以被一个坐标系中的一组坐标表示, 第二种表现形式可以理解为一个确定坐标系中的一组坐标唯一确定一个向量
+```python
+# via web
+from functools import reduce
+def egcd(a, b):
+    """扩展欧几里得"""
+    if 0 == b:
+        return 1, 0, a
+    x, y, q = egcd(b, a % b)
+    x, y = y, (x - a // b * y)
+    return x, y, q
+def chinese_remainder(pairs):
+# 中国剩余定理
+    mod_list, remainder_list = [p[0] for p in pairs], [p[1] for p in pairs]
+    mod_product = reduce(lambda x, y: x * y, mod_list)
+    mi_list = [mod_product//x for x in mod_list]
+    mi_inverse = [egcd(mi_list[i], mod_list[i])[0] for i in range(len(mi_list))]
+    x = 0
+    for i in range(len(remainder_list)):
+        x += mi_list[i] * mi_inverse[i] * remainder_list[i]
+        x %= mod_product
+    return x
+if __name__=='__main__':
+    print(chinese_remainder([(3, 2), (5, 3), (7, 2)]))
+```
+
+---
+
+## 离散对数
+
+### 模n的整数幂
+
+
 
 > 参考文献: 《密码编码学与网络安全--原理与实践(第七版)》
