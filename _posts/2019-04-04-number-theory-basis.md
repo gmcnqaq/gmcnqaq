@@ -569,10 +569,18 @@ $$ dlog_{a, p}(y^r) \equiv [r \times dlog_{a, p}(y)]\ mod\ \varphi(p) $$
 
 注意, 仅当**a是m的原根时**, 才存在有唯一的以a为底模m的离散对数
 
+如果b也是模p的一个原根, 则
+
+$$ dlog_{a, p}(x) \equiv [dlog_{b, p}(x) \times dlog_{a, p}(b)]\ mod\ \varphi(p) $$
+
 ### 快速模幂算法
 
+假定要计算 $$ a^b $$, 其中a和b是正整数。若将b表示为二进制数 $$ b_kb_{k - 1}\dots b_0 $$, 则 $$ b = \sum_{b_i \ne 0}2^i $$ 所以
 
+$$ a^b = a^{\sum_{b_i \ne 0}2^i} = \prod_{b_i \ne 0}a^{2^i} $$
 
+$$ a^b\ mod\ n = [\prod_{b_i \ne 0}a^{2^i}]\ mod\ n = [\prod_{b_i \ne 0}(a^{2^i}\ mod\ n)]\ mod\ n $$
 
+---
 
 > 参考文献: 《密码编码学与网络安全--原理与实践(第七版)》
