@@ -9,7 +9,7 @@ comments: false
 ### 可爱的姐姐们
 * [**Blacsheep**](https://blog.blacsheep.cn/)(我跟你讲这个人gay得不行(っ•̀ω•́)っ
 * [**Cyru1s**](http://blog.cyru1s.com/)(方姐姐ヽ(￣▽￣)ﾉ
-* [**JHSN**](https://blog.chrstm.com/)(金姐姐(ﾉﾟ▽ﾟ)ﾉ
+* [**JHSN**](https://blog.chrstm.com/)(钱姐姐(ﾉﾟ▽ﾟ)ﾉ
 * [**Kyrios**](https://blog.kyrios.cn/)(杜姐姐ヾ(✿ﾟ▽ﾟ)ノ
 * [**lc4t**](https://blog.lc4t.me/)(贺贺ヽ(°▽、°)ﾉ
 * [**MitAh**](http://mitah.cn/)(乖乖姐姐٩(๑>◡<๑)۶ 
