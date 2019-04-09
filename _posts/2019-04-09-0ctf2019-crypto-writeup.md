@@ -2,7 +2,7 @@
 layout: post
 title: 0ctf2019 Crypto writeup
 date: 2019-04-09
-exceprt: "补题"
+excerpt: "补题"
 tag:
 - Writeup
 - CTF
@@ -19,7 +19,7 @@ comments: true
 
 ## baby rsa
 
-## baby spomge
+## baby sponge
 
 ## zer0 des
 
