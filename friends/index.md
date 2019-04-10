@@ -21,5 +21,6 @@ comments: false
 * [**yypE**](http://47.94.173.236/blog/)(这是gay!(￣３￣)a 
 * [**浅云**](http://blog.shallowcloud.com/)(小姬姬(ﾟ▽ﾟ*) 
 
-
+### 嘤嘤嘤
+[Bingjun Luo](https://blog.lbjthu.tech/)(班长ヾ(ｏ･ω･)ﾉ
 
