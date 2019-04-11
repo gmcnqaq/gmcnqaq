@@ -2,10 +2,10 @@
 layout: post
 title: 日语学习week1
 date: 2019-04-04
-excerpt: "第一周学习笔记"
+excerpt: "第一周学习笔记 先咕为敬"
 tag:
 - Japanese
-- study notes
+- learning notes
 comments: true
 ---
 
