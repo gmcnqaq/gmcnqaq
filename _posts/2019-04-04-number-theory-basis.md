@@ -2,7 +2,7 @@
 layout: post
 title: "数论基础"
 date: 2019-04-04
-excerpt: "介绍一些基础概念"
+excerpt: "基础概念介绍"
 tag:
 - Number Theory
 - Crypto
