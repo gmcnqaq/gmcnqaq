@@ -22,5 +22,5 @@ comments: false
 * [**浅云**](http://blog.shallowcloud.com/)(小姬姬(ﾟ▽ﾟ*) 
 
 ### 嘤嘤嘤
-* [Bingjun Luo](https://blog.lbjthu.tech/)(班长ヾ(ｏ･ω･)ﾉ
+* [**Bingjun Luo**](https://blog.lbjthu.tech/)(班长ヾ(ｏ･ω･)ﾉ
 
