@@ -7,7 +7,10 @@ tag:
 - Japanese
 - learning notes
 comments: true
+music-id: 809268
 ---
+
+*版权原因歌曲播放有地区限制*
 
 ---
 
