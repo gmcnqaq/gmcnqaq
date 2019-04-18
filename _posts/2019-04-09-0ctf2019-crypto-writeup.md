@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 0ctf2019 Crypto writeup
+title: "0ctf2019 Crypto writeup"
 date: 2019-04-09
 excerpt: "弱鸡的补题之旅  毕业要紧 先咕咕咕"
 tag:
