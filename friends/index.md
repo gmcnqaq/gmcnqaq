@@ -7,6 +7,7 @@ comments: false
 ## <center>Friends</center>
 
 ### 可爱的姐姐们
+* [**Anthem**](http://anthem.fun/)(止痒 奶茶!!!๑乛◡乛๑ 
 * [**Blacsheep**](https://blog.blacsheep.cn/)(我跟你讲这个人gay得不行(っ•̀ω•́)っ
 * [**Cyru1s**](http://blog.cyru1s.com/)(方姐姐ヽ(￣▽￣)ﾉ
 * [**JHSN**](https://blog.chrstm.com/)(钱姐姐(ﾉﾟ▽ﾟ)ﾉ
