@@ -2,7 +2,7 @@
 layout: post
 title: starctf/*ctf2019 Crypto writeup
 date: 2019-04-30
-excerpt:
+excerpt: "毕业要紧 毕业要紧"
 tag:
 - Writeup
 - CTF
