@@ -134,6 +134,23 @@ def modinv(a, m):
     else:
         return x % m
 ```
+
+```python
+def exgcd(m, n):
+    x, y, x1, y1 = 0, 1, 1, 0
+    while m % n:
+        x, x1 = x1 - m // n * x, x
+        y, y1 = y1 - m // n * y, y
+        m, n = n, m % n
+    return n, x, y
+
+def modinv(x, p):
+    g, y, k = exgcd(x, p)
+    if g != 1:
+        raise Exception('modular inverse does not exist')
+    else:
+        return y % p
+```
 ---
 
 ## 素数
