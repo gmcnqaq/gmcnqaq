@@ -434,8 +434,8 @@ nc 167.71.62.250 43139
 |	[E]ncryption function         |
 |	[K]eygen function             |
 |	[O]racle function             |
-|	[F]lag (encrypted)!           |
-|	[P]ublic key!                 |
+|	[F]lag (encrypted)           |
+|	[P]ublic key                 |
 |	[T]est poracle                |
 |	[Q]uit                        |
 |-------------------------------------|
