@@ -80,7 +80,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  jekyll (~> 3.2.1)
+  jekyll (~> 3.6.3)
   jekyll-feed
   jekyll-gist
   jekyll-mentions
